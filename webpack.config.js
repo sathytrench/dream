@@ -8,8 +8,9 @@ module.exports = {
     devServer: {
       contentBase: './public',
       inline: true,
-      hot: true
+      hot: false
     },
+
     output: {
         path: path.resolve(__dirname, 'public'),
         publicPath: '/public/',
