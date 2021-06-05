@@ -12,11 +12,11 @@ export default class Scene1 extends Phaser.Scene {
       
     preload () {  
       //background
-      this.load.image('sky', 'assets/GROUND.jpeg');
+      this.load.image('sky', 'assets/sky.png');
       //sprites 
-      this.load.image('ground', 'assets/GROUND.jpeg');
+      this.load.image('ground', 'assets/ground.png');
       //player
-      this.load.spritesheet('lady', 'assets/somerSpriteSheet.png', { frameWidth: 506.9, frameHeight: 1049 });
+      this.load.spritesheet('lady', 'assets/lady.png', { frameWidth: 145, frameHeight: 300 });
     }
 
     //////////////////////////////////////////CREATE///////////////////////////////////////////////////////
@@ -24,10 +24,9 @@ export default class Scene1 extends Phaser.Scene {
     create () {
       //background
       this.add.image(400, 300, 'sky');
-      //background music
-      this.sound.add('music').setLoop(true).play();
+    
       //player
-      this.player = new Player(this, 100, 450, 'lady').setScale(1.5);
+      this.player = new Player(this, 100, 0, 'lady');
       this.player.setBounce(0.2);
       this.player.setCollideWorldBounds(true);
 
@@ -53,10 +52,7 @@ export default class Scene1 extends Phaser.Scene {
 
       //ground
       this.groundGroup = this.physics.add.staticGroup({classType: Ground}); 
-      this.groundGroup.create(400, 568, 'ground').setScale(2).refreshBody();
-      this.groundGroup.create(600, 400, 'ground');
-      this.groundGroup.create(50, 250, 'ground');
-      this.groundGroup.create(750, 220, 'ground');
+      this.groundGroup.create(400, 750, 'ground').refreshBody();
 
       //collisions
       this.physics.add.collider(this.player, this.groundGroup);
