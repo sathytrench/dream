@@ -16,7 +16,7 @@ export default class Scene1 extends Phaser.Scene {
       //sprites 
       this.load.image('ground', 'assets/ground.png');
       //player
-      this.load.spritesheet('lady', 'assets/lady.png', { frameWidth: 145, frameHeight: 300 });
+      this.load.spritesheet('lady', 'assets/lady.png', { frameWidth: 145, frameHeight: 286 });
     }
 
     //////////////////////////////////////////CREATE///////////////////////////////////////////////////////
@@ -52,7 +52,7 @@ export default class Scene1 extends Phaser.Scene {
 
       //ground
       this.groundGroup = this.physics.add.staticGroup({classType: Ground}); 
-      this.groundGroup.create(400, 750, 'ground').refreshBody();
+      this.groundGroup.create(400, 850, 'ground').refreshBody();
 
       //collisions
       this.physics.add.collider(this.player, this.groundGroup);
